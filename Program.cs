@@ -3,22 +3,28 @@
 //7/2/2025
 //CS 1405 Pig Latin/ Encoder
 // 2. Greeting
-        Console.WriteLine("Pig Latin Converter and Encoder");
+Console.WriteLine("Pig Latin Converter and Encoder");
 
-        // 3. Collect a string.
-        Console.Write("Please enter a message: ");
-        string message = Console.ReadLine();
-        
+// 3. Collect a string.
+Console.Write("Please enter a message: ");
+string message = Console.ReadLine();
 
+// 4. Convert each word into Pig Latin
+string[] words = message.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+for (int i = 0; i < words.Length; i++)
+{
+    words[i] = PigLatin(words[i]);
+}
 
+string pigLatin = string.Join(" ", words);
 
+// 5. Print the phrase in Pig Latin
+Console.WriteLine($"\nPig latin: {pigLatin}");
 
-
-        
 // Pig Latin Method
 static string PigLatin(string word)
 {
-    string vowels = "aeiou";
+    string vowels = "aeiou";       
     word = word.ToLower(); // make everything lowercase so I don't have to worry about capitalization. 
 
     int index = 0;
